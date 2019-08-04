@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let objeto1 = {
+            nome: 'Bob'
+        };
+
+        let objeto2 = {
+            nome: 'Leo'
+        }
+
+        function exibeNome() {
+            alert(this.nome);
+        }
+
+        // Reflect.apply(MÉTODO OU FUNÇÃO, OBJETO, [PARÂMETROS]);
+        Reflect.apply(exibeNome, objeto1, []); // exibe 'Bob'
+        Reflect.apply(exibeNome, objeto2, []); // exibe 'Leo'
+
+    </script>
+</body>
+</html>

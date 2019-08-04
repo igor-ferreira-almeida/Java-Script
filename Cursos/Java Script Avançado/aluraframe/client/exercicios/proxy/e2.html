@@ -1,0 +1,24 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let funcionario = {email: 'abc@abc.com'};
+
+        let proxy = new Proxy(funcionario, {
+            get(target, prop, receiver) {
+                console.log("interceptando atributo email");
+                return "**" + Reflect.get(target, prop, receiver) + "**";
+            }
+        });
+
+        console.log(proxy.email);
+    </script>
+</body>
+</html>

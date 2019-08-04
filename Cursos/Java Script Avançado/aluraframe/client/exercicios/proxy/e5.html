@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Funcionario {
+
+            constructor(email) {
+                this._email = email;
+            }
+
+            get email() {
+                return this._email;
+            }
+
+            set email(email) {
+                this._email = email;
+            }
+        }
+
+        let funcionario = {email: 'abc@abc.com'};
+        let funcionarioProxy = new Proxy(funcionario, {
+
+            set(target, prop, value, receiver) {
+                console.log("Nome da propriedade alterada: " + prop);
+                console.log(`valor antigo da propriedade: ${target[prop]} valor atual da propriedade ${value}`);
+                target[prop] = value;
+            }
+        });
+
+        funcionarioProxy.email = 'alcor@alcor.com';
+        console.log(funcionarioProxy.email);
+    </script>
+</body>
+</html>
